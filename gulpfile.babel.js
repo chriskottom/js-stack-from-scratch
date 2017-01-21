@@ -1,22 +1,30 @@
+/* eslint-disable no-console */
 import gulp from 'gulp';
 import babel from 'gulp-babel';
 import del from 'del';
 import { exec } from 'child_process';
+import eslint from 'gulp-eslint';
 
 const paths = {
   allSrcJs: 'src/**/*.js',
-  libDir: 'lib'
+  libDir: 'lib',
+  gulpFile: 'gulpfile.babel.js',
 };
 
-gulp.task('clean', () => {
-  return del(paths.libDir);
-});
+gulp.task('lint', () =>
+          gulp.src([paths.allSrcJs, paths.gulpFile])
+              .pipe(eslint())
+              .pipe(eslint.format())
+              .pipe(eslint.failAfterError()),
+          );
 
-gulp.task('build', ['clean'], () => {
-  return gulp.src(paths.allSrcJs)
-	     .pipe(babel())
-	     .pipe(gulp.dest(paths.libDir));
-});
+gulp.task('clean', () => del(paths.libDir));
+
+gulp.task('build', ['lint', 'clean'], () =>
+          gulp.src(paths.allSrcJs)
+              .pipe(babel())
+              .pipe(gulp.dest(paths.libDir)),
+          );
 
 gulp.task('main', ['build'], (callback) => {
   exec(`node ${paths.libDir}`, (error, stdout) => {
