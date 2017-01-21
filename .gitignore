@@ -1,0 +1,10 @@
+*~
+\#*\#
+.\#*
+*.bak
+*.old
+*.orig
+/stash/
+
+npm-debug.log
+yarn-error.log

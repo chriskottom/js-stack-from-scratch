@@ -1,0 +1,12 @@
+{
+    "name": "ReactTicTacToe",
+    "version": "1.0.0",
+    "description": "React example application",
+    "main": "index.js",
+    "repository": {},
+    "author": "Chris Kottom",
+    "license": "MIT",
+    "scripts": {
+	"start": "node ."
+    }
+}
