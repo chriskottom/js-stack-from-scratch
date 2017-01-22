@@ -23,7 +23,9 @@
         "redux-immutable": "^3.0.10"
     },
     "devDependencies": {
+        "babel-eslint": "^7.1.1",
         "babel-loader": "^6.2.10",
+        "babel-preset-flow": "^1.0.0",
         "babel-preset-latest": "^6.22.0",
         "babel-preset-react": "^6.22.0",
         "chai": "^3.5.0",
@@ -36,6 +38,7 @@
         "gulp": "^3.9.1",
         "gulp-babel": "^6.1.2",
         "gulp-eslint": "^3.0.1",
+        "gulp-flowtype": "^1.0.0",
         "gulp-mocha": "^3.0.1",
         "mocha": "^3.2.0",
         "sinon": "^1.17.7",
@@ -44,11 +47,13 @@
     },
     "babel": {
         "presets": [
+            "flow",
             "latest",
             "react"
         ]
     },
     "eslintConfig": {
+	"parser": "babel-eslint",
         "rules": {
             "new-cap": [
                 2,
@@ -63,8 +68,9 @@
         "env": {
             "browser": true
         },
-        "extends": "airbnb",
+        "extends": ["airbnb", "plugin:flowtype/recommended"],
         "plugins": [
+	    "flowtype",
             "import"
         ]
     }

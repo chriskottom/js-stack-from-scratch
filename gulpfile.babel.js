@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import gulp from 'gulp';
 import babel from 'gulp-babel';
+import flow from 'gulp-flowtype';
 import mocha from 'gulp-mocha';
 import del from 'del';
 import eslint from 'gulp-eslint';
@@ -24,7 +25,8 @@ gulp.task('lint', () =>
           gulp.src([paths.allSrcJs, paths.gulpFile, paths.webpackFile])
               .pipe(eslint())
               .pipe(eslint.format())
-              .pipe(eslint.failAfterError()),
+              .pipe(eslint.failAfterError())
+              .pipe(flow({ abort: true })),
           );
 
 gulp.task('clean', () => del([
