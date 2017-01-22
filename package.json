@@ -9,7 +9,8 @@
     "scripts": {
         "start": "gulp",
         "clean": "gulp clean",
-        "build": "gulp build"
+        "build": "gulp build",
+        "test": "gulp test"
     },
     "dependencies": {
         "babel-polyfill": "^6.22.0",
@@ -18,12 +19,14 @@
         "react-dom": "^15.4.2",
         "react-redux": "^5.0.2",
         "redux": "^3.6.0",
-        "redux-actions": "^1.2.0"
+        "redux-actions": "^1.2.0",
+        "redux-immutable": "^3.0.10"
     },
     "devDependencies": {
         "babel-loader": "^6.2.10",
         "babel-preset-latest": "^6.22.0",
         "babel-preset-react": "^6.22.0",
+        "chai": "^3.5.0",
         "del": "^2.2.2",
         "eslint": "^3.14.0",
         "eslint-config-airbnb": "^14.0.0",
@@ -33,6 +36,10 @@
         "gulp": "^3.9.1",
         "gulp-babel": "^6.1.2",
         "gulp-eslint": "^3.0.1",
+        "gulp-mocha": "^3.0.1",
+        "mocha": "^3.2.0",
+        "sinon": "^1.17.7",
+        "sinon-chai": "^2.8.0",
         "webpack-stream": "^3.2.0"
     },
     "babel": {
