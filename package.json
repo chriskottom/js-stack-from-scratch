@@ -13,10 +13,12 @@
     },
     "dependencies": {
         "babel-polyfill": "^6.22.0",
+        "immutable": "^3.8.1",
         "react": "^15.4.2",
         "react-dom": "^15.4.2",
         "react-redux": "^5.0.2",
-        "redux": "^3.6.0"
+        "redux": "^3.6.0",
+        "redux-actions": "^1.2.0"
     },
     "devDependencies": {
         "babel-loader": "^6.2.10",
@@ -40,6 +42,17 @@
         ]
     },
     "eslintConfig": {
+        "rules": {
+            "new-cap": [
+                2,
+                {
+                    "capIsNewExceptions": [
+                        "Map",
+                        "List"
+                    ]
+                }
+            ]
+        },
         "env": {
             "browser": true
         },
